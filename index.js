@@ -7,9 +7,7 @@ const prefix = "!";
 const { Client, Intents } = require("discord.js");
 
 // Instantiate new client object with desired Intents
-const client = new Client({
-  intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.DIRECT_MESSAGES],
-});
+const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES", "DIRECT_MESSAGES", "DIRECT_MESSAGE_REACTIONS", "DIRECT_MESSAGE_TYPING"], partials: ['CHANNEL',] });
 
 // Authenticate via environment variable having been loaded
 // via the dotenv.config() call earlier.
