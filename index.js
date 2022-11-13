@@ -8,7 +8,7 @@ const { Client, Intents } = require("discord.js");
 
 // Instantiate new client object with desired Intents
 const client = new Client({
-  intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
+  intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.DIRECT_MESSAGES],
 });
 
 // Authenticate via environment variable having been loaded
