@@ -1,6 +1,8 @@
 # Timmy MK 3
 
-Timmy MK 3 is an homage to the original Timmy the Time Bot programmed by Khunee and Juliend10 in Python. I switched to Javascript as I'm more comfortable with it, and AWS hosting for a more stable hosting solution than the original Timmy bot.
+Timmy MK 3 is an homage to the original Timmy the Time Bot programmed by Khunee and Juliend10 in Python. I switched to Javascript as I'm more comfortable with it.
+
+I'm hosting this via Node.JS on [Railway.app](https://railway.app/). For a similar implementation using AWS Lambda for hosting, see [Timmy MK 2](https://github.com/solderq35/timmy_mk_2).
 
 For a full deep dive into the math behind this, please check [Time Calc Website README](https://github.com/solderq35/time-calc-under-5/blob/main/README.md#mathematics-code-explanation). This bot mostly works the same, except that this bot can return up to 4 possible values, in return for the user typing in less inputs than the Time Calc Website. I kept it that way as the original Timmy Bot did it the same, and also because the speedrunner users are generally ok with sifting through a few possible answers if they can enter less inputs.
 
