@@ -30,7 +30,9 @@ client.on("messageCreate", function (msg) {
   const args2 = msg.content.trim().split(" ");
   const command = args2.shift().toLowerCase();
   if (command === "!time") {
-    const score = args[1];
+    let score = args[1];
+	score = parseFloat(score.replace(/,/g, ''));
+	
     const result_array = [];
     // for all 20 possible M values
     for (let i = 1; i <= 20; i++) {
