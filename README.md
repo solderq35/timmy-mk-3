@@ -17,7 +17,7 @@ Check [Discord.js v12 documentation](https://v12.discordjs.guide/creating-your-b
 ## Usage Instructions
 1. Add the bot to your Discord server using [this URL](https://discord.com/api/oauth2/authorize?client_id=1041152819874508812&permissions=2147486720&scope=bot%20applications.commands), or just DM the bot on Discord at `Timmy MK 3#9573`. Sending commands to the bot in a server and in DM's are both supported.
 2. The required inputs are to type `!time SCORE`, where SCORE is the score on the rating screen.
-  - You can have commas in your score input.
+    - You can have commas in your score input.
 3. Most video examples from [here](https://www.youtube.com/results?search_query=hitman+3+speedrun&sp=EgIYAQ%253D%253D) or [here](https://www.speedrun.com/hitman_3) will work for getting valid scores. Otherwise, any score value of about 50,000 to 210,000 should work. 
     - **NOTE: Only Hitman level completion times of up to 5 minutes are compatible with the bot.** 
     - Use the [Time Calc Website](https://solderq35.github.io/time-calc-under-5/over5) for times of 5 to 15 minutes.
