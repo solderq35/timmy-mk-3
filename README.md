@@ -8,6 +8,8 @@ For a full deep dive into the math behind this, please check [Time Calc Website 
 
 ## How to Run Your Own Instance
 - Before you start, create a `.env` file and include the line `DISCORD_TOKEN=DISCORD_TOKEN_VALUE`, where `DISCORD_TOKEN_VALUE` can be obtained as [explained here](https://www.online-tech-tips.com/computer-tips/what-is-a-discord-token-and-how-to-get-one/)
+- Run `npm install` to install dependencies
+  - I am on Node version 16.20.0 if it matters
 - Run `node index.js` to run locally
 - Alternatively, I hosted this on [railway.app](https://railway.app/)
 

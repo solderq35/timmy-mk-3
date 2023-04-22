@@ -89,7 +89,7 @@ client.on("messageCreate", function (msg) {
 
     // if no numbers were returned in range (0 to 5 minutes), it's a bad input
     else {
-      var copymsg = "Invalid Score Madge";
+      var copymsg = "Invalid Score :smiling_face_with_3_hearts:";
       result_array.unshift(copymsg);
     }
 
@@ -103,7 +103,7 @@ client.on("messageCreate", function (msg) {
         score < 5000) &&
       result_array.length > 0
     ) {
-      msg2 = "Invalid Score Madge";
+      msg2 = "Invalid Score :smiling_face_with_3_hearts:";
     }
     //console.log(score);
     var stringscore = msg2.toString();
