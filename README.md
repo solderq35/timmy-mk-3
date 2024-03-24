@@ -24,9 +24,9 @@ Check [Discord.js v12 documentation](https://v12.discordjs.guide/creating-your-b
     - **NOTE: Only Hitman level completion times of up to 5 minutes are compatible with the bot.** 
     - Use the [Time Calc Website](https://solderq35.github.io/time-calc-under-5/over5) for times of 5 to 15 minutes.
 4. For this example, let's use [this video](https://www.youtube.com/watch?v=zIRAmZdl-y4), which is an 8 second run of the "On Top of the World" Hitman level.
-5. We can see that the end of this video that the score at the end of the video is `83,521`. As shown here: ![Score](https://media.discordapp.net/attachments/833505136290299935/993958134945169418/unknown.png?width=947&height=670)
+5. We can see that the end of this video that the score at the end of the video is `83,521`. As shown here: ![Score](https://i.ibb.co/6v63rZm/goronscore.png)
 6. Now, let's type `!time 83521`.
 
-![Milliseconds Score](https://media.discordapp.net/attachments/1018323831468851202/1041186855816806481/image.png)
+![Milliseconds Score](https://i.ibb.co/sVpbXXd/timmy-example.png)
 
 7. As you can see, the bot returns a few viable solutions. One of them (8.981) is within a second of the 8 seconds value shown on the rating screen, so this is the milliseconds value we are looking for. 
