@@ -138,7 +138,7 @@ client.on("messageCreate", function (msgInput) {
         msgInput.channel.send(result_array[i]);
       }
       let debugInfo =
-        "\nM value = Completed SA bonuses (20k each) minus nontarget kills (5k each)\n[Longer Math Explanation](<https://github.com/solderq35/time-calc-under-5/blob/main/README.md#mathematics-code-explanation>)";
+        "\nM value = Completed SA bonuses (20k each) minus nontarget kills (5k each)\n[Longer Math Explanation](<https://github.com/solderq35/time-calc-under-5/blob/main/README.md#error-calculation>)";
       msgInput.channel.send(debugInfo);
     } else if (command === "!time") {
       let stringscore = msgOutput.toString();
