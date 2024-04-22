@@ -97,7 +97,6 @@ client.on("messageCreate", function (msgInput) {
             formatted_error_range = "0." + error_range_milliseconds;
           }
         }
-        console.log(error_range_milliseconds);
         let debug_result = `- Original Time Calc: [${formatted_result}](<https://www.google.com/search?q=%28210000+-+%28${parseFloat(
           score
         )}+*+100000+%2F+${base_M}%29%29+*+%283+%2F+400%29>)\n  - Time Calc Error Range: ([${formatted_lower_bound}](<https://www.google.com/search?q=%28210000+-+%28${parseFloat(
