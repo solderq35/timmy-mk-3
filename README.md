@@ -37,7 +37,7 @@ Check [Discord.js v12 documentation](https://v12.discordjs.guide/creating-your-b
 
 8. In case of rounding errors, you will get a warning, as shown below (example: `!time 204667`):
 
-![debug 1](https://i.ibb.co/G3hRtXS/debugtime1.png)
+![debug 1](https://i.ibb.co/kxbjDHN/debugtime1.png)
 
 9. Use the `!debugtime SCORE`, where SCORE is the score on the rating screen as shown below (example: `!debugtime 204667`):
 
