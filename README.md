@@ -35,11 +35,11 @@ Check [Discord.js v12 documentation](https://v12.discordjs.guide/creating-your-b
 
 7. As you can see, the bot returns a few viable solutions. One of them (8.981) is within a second of the 8 seconds value shown on the rating screen, so this is the milliseconds value we are looking for.
 
-8. In case of rounding errors, you will get a warning, as shown below (example: `!time 113593`):
+8. In case of rounding errors, you will get a warning, as shown below (example: `!time 204667`):
 
-![debug 1](https://i.ibb.co/mDgFDLH/debugtime1.png)
+![debug 1](https://i.ibb.co/G3hRtXS/debugtime1.png)
 
-9. Use the `!debugtime SCORE`, where SCORE is the score on the rating screen as shown below (example: `!debugtime 113593`):
+9. Use the `!debugtime SCORE`, where SCORE is the score on the rating screen as shown below (example: `!debugtime 204667`):
 
 ![debug 2](https://i.ibb.co/YtGzhDM/debugtime2.png)
 
