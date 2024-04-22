@@ -34,7 +34,8 @@ client.on("messageCreate", function (msgInput) {
   const args2 = msgInput.content.trim().split(" ");
   const command = args2.shift().toLowerCase();
 
-  // TESTING: change "time" to "testtime" or something to avoid triggering prod during local dev
+  // TESTING: change "time" to "testtime", and "debugtime" to "testdebugtime" or something to avoid triggering prod during local dev
+  // For find and replace, add "!" in front of arg names to avoid changing the above comment by accident
   if (command === "!time" || command === "!debugtime") {
     let score = args[1];
     score = parseFloat(score.replace(/,/g, ""));
@@ -109,8 +110,11 @@ client.on("messageCreate", function (msgInput) {
           if (
             Math.floor(lower_bound_seconds) !== Math.floor(higher_bound_seconds)
           ) {
+            let debugCommand = "!debugtime " + score;
             let debugTip =
-              "- Potential rounding error detected, for more info check `!debugtime SCORE`";
+              "- Potential rounding error detected, for more info check `" +
+              debugCommand +
+              "`";
             result_array.push(debugTip);
           }
         } else if (command === "!debugtime") {
