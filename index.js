@@ -103,7 +103,7 @@ client.on("messageCreate", function (msgInput) {
           score + 0.5
         )}+*+100000+%2F+${base_M}%29%29+*+%283+%2F+400%29>), [${formatted_higher_bound}](<https://www.google.com/search?q=%28210000+-+%28${parseFloat(
           score - 0.5
-        )}+*+100000+%2F+${base_M}%29%29+*+%283+%2F+400%29>))\n  - Margin of Error (Seconds): ± [${formatted_error_range}](<https://www.google.com/search?q=%280.5+*+100000+%2F+${base_M}%29+*+%283+%2F+400%29>)\n  - M value: ${base_M}`;
+        )}+*+100000+%2F+${base_M}%29%29+*+%283+%2F+400%29>)]\n  - Margin of Error (Seconds): ± [${formatted_error_range}](<https://www.google.com/search?q=%280.5+*+100000+%2F+${base_M}%29+*+%283+%2F+400%29>)\n  - M value: ${base_M}`;
         if (command === "!time") {
           result_array.push(formatted_result);
           if (
