@@ -10,7 +10,7 @@ For a full deep dive into the math behind this, please check [Time Calc Website 
 
 - Before you start, create a `.env` file and include the line `DISCORD_TOKEN=DISCORD_TOKEN_VALUE`, where `DISCORD_TOKEN_VALUE` can be obtained as [explained here](https://www.online-tech-tips.com/computer-tips/what-is-a-discord-token-and-how-to-get-one/)
 - Run `npm install` to install dependencies
-  - I am on NodeJS version 18.18.2if it matters
+  - I am on NodeJS version 18.18.2 if it matters
 - Run `node index.js` to run locally
 - Code formatting: `npm run prettier`
 - For server hosting, I used [railway.app](https://railway.app/)
