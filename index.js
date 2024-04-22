@@ -99,7 +99,7 @@ client.on("messageCreate", function (msgInput) {
         }
         let debug_result = `- Original Time Calc: [${formatted_result}](<https://www.google.com/search?q=%28210000+-+%28${parseFloat(
           score
-        )}+*+100000+%2F+${base_M}%29%29+*+%283+%2F+400%29>)\n  - Time Calc Error Range: ([${formatted_lower_bound}](<https://www.google.com/search?q=%28210000+-+%28${parseFloat(
+        )}+*+100000+%2F+${base_M}%29%29+*+%283+%2F+400%29>)\n  - Time Calc Error Range: [[${formatted_lower_bound}](<https://www.google.com/search?q=%28210000+-+%28${parseFloat(
           score + 0.5
         )}+*+100000+%2F+${base_M}%29%29+*+%283+%2F+400%29>), [${formatted_higher_bound}](<https://www.google.com/search?q=%28210000+-+%28${parseFloat(
           score - 0.5
