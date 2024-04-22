@@ -39,9 +39,9 @@ Check [Discord.js v12 documentation](https://v12.discordjs.guide/creating-your-b
 
 ![debug 1](https://i.ibb.co/mDgFDLH/debugtime1.png)
 
-9. Use the `!debugtime SCORE`, where SCORE is the score on the rating screen as shown below (example: `!debugtime 113593`)
+9. Use the `!debugtime SCORE`, where SCORE is the score on the rating screen as shown below (example: `!debugtime 113593`):
 
-![debug 2](https://i.ibb.co/pfK6ZQT/debugtime2.png)
+![debug 2](https://i.ibb.co/pfK6ZQT/debugtime2.PNG)
 
 If needed, click the individual links on the debug message to see the exact math equation use (cross reference with [Longer Math Explanation](https://github.com/solderq35/time-calc-under-5/blob/main/README.md#mathematics-code-explanation) link at bottom):
 
