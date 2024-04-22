@@ -34,3 +34,15 @@ Check [Discord.js v12 documentation](https://v12.discordjs.guide/creating-your-b
 ![Milliseconds Score](https://i.ibb.co/sVpbXXd/timmy-example.png)
 
 7. As you can see, the bot returns a few viable solutions. One of them (8.981) is within a second of the 8 seconds value shown on the rating screen, so this is the milliseconds value we are looking for.
+
+8. In case of rounding errors, you will get a warning, as shown below (example: `!time 113593`):
+
+![debug 1](https://i.ibb.co/mDgFDLH/debugtime1.png)
+
+9. Use the `!debugtime SCORE`, where SCORE is the score on the rating screen as shown below (example: `!debugtime 113593`)
+
+![debug 2](https://i.ibb.co/pfK6ZQT/debugtime2.png)
+
+If needed, click the individual links on the debug message to see the exact math equation use (cross reference with [Longer Math Explanation](https://github.com/solderq35/time-calc-under-5/blob/main/README.md#mathematics-code-explanation) link at bottom):
+
+![googleCalc](https://i.ibb.co/y4F9Qp5/googlecalc.png)
