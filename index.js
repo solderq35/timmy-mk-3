@@ -135,18 +135,21 @@ client.on("messageCreate", function (msgInput) {
       result_array.length === 0
     ) {
       msgOutput = "Invalid Score :smiling_face_with_3_hearts:";
-    }
-    //console.log(score);
-    if (command === "!debugtime") {
-      for (let i = 0; i < result_array.length; i++) {
-        msgInput.channel.send(result_array[i]);
+      let error_output_string = msgOutput.toString();
+      msgInput.channel.send(error_output_string);
+    } else {
+      //console.log(score);
+      if (command === "!debugtime") {
+        for (let i = 0; i < result_array.length; i++) {
+          msgInput.channel.send(result_array[i]);
+        }
+        let debugInfo =
+          "\nM value = Completed SA bonuses (20k each) minus nontarget kills (5k each)\n[Longer Math Explanation](<https://github.com/solderq35/time-calc-under-5/blob/main/README.md#error-calculation>)";
+        msgInput.channel.send(debugInfo);
+      } else if (command === "!time") {
+        let base_output_string = msgOutput.toString();
+        msgInput.channel.send(base_output_string);
       }
-      let debugInfo =
-        "\nM value = Completed SA bonuses (20k each) minus nontarget kills (5k each)\n[Longer Math Explanation](<https://github.com/solderq35/time-calc-under-5/blob/main/README.md#error-calculation>)";
-      msgInput.channel.send(debugInfo);
-    } else if (command === "!time") {
-      let stringscore = msgOutput.toString();
-      msgInput.channel.send(stringscore);
     }
   }
 });
