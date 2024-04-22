@@ -36,7 +36,7 @@ client.on("messageCreate", function (msgInput) {
 
   // TESTING: change "time" to "testtime", and "debugtime" to "testdebugtime" or something to avoid triggering prod during local dev
   // For find and replace, add "!" in front of arg names to avoid changing the above comment by accident
-  if (command === "!testtime" || command === "!testdebugtime") {
+  if (command === "!time" || command === "!debugtime") {
     let score = args[1];
     score = parseFloat(score.replace(/,/g, ""));
 
@@ -105,19 +105,19 @@ client.on("messageCreate", function (msgInput) {
         )}+*+100000+%2F+${base_M}%29%29+*+%283+%2F+400%29>), [${formatted_higher_bound}](<https://www.google.com/search?q=%28210000+-+%28${parseFloat(
           score - 0.5
         )}+*+100000+%2F+${base_M}%29%29+*+%283+%2F+400%29>)]\n  - Margin of Error (Seconds): ± [${formatted_error_range}](<https://www.google.com/search?q=%280.5+*+100000+%2F+${base_M}%29+*+%283+%2F+400%29>)\n  - M value: ${base_M}`;
-        if (command === "!testtime") {
+        if (command === "!time") {
           result_array.push(formatted_result);
           if (
             Math.floor(lower_bound_seconds) !== Math.floor(higher_bound_seconds)
           ) {
-            let debugCommand = "!testdebugtime " + score;
+            let debugCommand = "!debugtime " + score;
             let debugTip =
               "- Potential rounding error detected, for more info check `" +
               debugCommand +
               "`";
             result_array.push(debugTip);
           }
-        } else if (command === "!testdebugtime") {
+        } else if (command === "!debugtime") {
           result_array.push(debug_result);
         }
       }
@@ -137,21 +137,20 @@ client.on("messageCreate", function (msgInput) {
       msgOutput = "Invalid Score :smiling_face_with_3_hearts:";
       let error_output_string = msgOutput.toString();
       msgInput.channel.send(error_output_string);
-    }
-    else {
-    //console.log(score);
-    if (command === "!testdebugtime") {
-      for (let i = 0; i < result_array.length; i++) {
-        msgInput.channel.send(result_array[i]);
+    } else {
+      //console.log(score);
+      if (command === "!debugtime") {
+        for (let i = 0; i < result_array.length; i++) {
+          msgInput.channel.send(result_array[i]);
+        }
+        let debugInfo =
+          "\nM value = Completed SA bonuses (20k each) minus nontarget kills (5k each)\n[Longer Math Explanation](<https://github.com/solderq35/time-calc-under-5/blob/main/README.md#error-calculation>)";
+        msgInput.channel.send(debugInfo);
+      } else if (command === "!time") {
+        let base_output_string = msgOutput.toString();
+        msgInput.channel.send(base_output_string);
       }
-      let debugInfo =
-        "\nM value = Completed SA bonuses (20k each) minus nontarget kills (5k each)\n[Longer Math Explanation](<https://github.com/solderq35/time-calc-under-5/blob/main/README.md#error-calculation>)";
-      msgInput.channel.send(debugInfo);
-    } else if (command === "!testtime") {
-      let base_output_string = msgOutput.toString();
-      msgInput.channel.send(base_output_string);
     }
-  }
   }
 });
 
