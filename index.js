@@ -40,6 +40,15 @@ client.on("messageCreate", function (msgInput) {
     let score = args[1];
     score = parseFloat(score.replace(/,/g, ""));
 
+    let over5Flag = false;
+    if (args[2] === "over5") {
+      over5Flag = true;
+    }
+    const baseScore = over5Flag ? 175000 : 210000;
+    const baseDivisor = over5Flag ? 50 : 400;
+    const lowerTimeBound = over5Flag ? 300 : 0;
+    const higherTimeBound = over5Flag ? 1500 : 300;
+
     const result_array = [];
     // for all 20 possible M values
     for (let i = 1; i <= 20; i++) {
@@ -48,25 +57,31 @@ client.on("messageCreate", function (msgInput) {
 
       // base result value (given in seconds:milliseconds. No rounding yet)
       let base_result =
-        (parseFloat(210000) - parseFloat((score * 100000) / base_M)) *
-        parseFloat(3 / 400);
+        (baseScore - parseInt(score) * (100000 / parseInt(base_M))) *
+        1000 *
+        (3 / baseDivisor);
 
       // error range (difference between upper bound ("base_result") and lower bound)
       let error_range_result =
-        parseFloat((0.5 * 100000) / base_M) * parseFloat(3 / 400);
+        0.5 * (100000 / parseInt(base_M)) * 100000 * (3 / baseDivisor);
 
       // lower bound result value (given in seconds:milliseconds. No rounding yet)
       let lower_bound_result =
-        (parseFloat(210000) - parseFloat(((score + 0.5) * 100000) / base_M)) *
-        parseFloat(3 / 400);
+        (baseScore - (parseInt(score) + 0.5) * (100000 / parseInt(base_M))) *
+        1000 *
+        (3 / baseDivisor);
 
       // higher bound result value (given in seconds:milliseconds. No rounding yet)
       let higher_bound_result =
-        (parseFloat(210000) - parseFloat(((score - 0.5) * 100000) / base_M)) *
-        parseFloat(3 / 400);
+        (baseScore - (parseInt(score) - 0.5) * (100000 / parseInt(base_M))) *
+        1000 *
+        (3 / baseDivisor);
 
       // only calculate if the base result value is within bounds of 0 - 5 minutes
-      if (base_result > 0 && base_result < 300) {
+      if (
+        base_result >= lowerTimeBound * 1000 &&
+        base_result < higherTimeBound * 1000
+      ) {
         let formatted_result = formatTime(base_result).formatted_result;
         let formatted_lower_bound =
           formatTime(lower_bound_result).formatted_result;
@@ -74,13 +89,10 @@ client.on("messageCreate", function (msgInput) {
         let formatted_higher_bound =
           formatTime(higher_bound_result).formatted_result;
         let higher_bound_seconds = formatTime(higher_bound_result).seconds;
-        let error_range_seconds = formatTime(error_range_result).seconds;
 
         // show 10^-5 seconds (thousandths of a millisecond) for error range delta (plus or minus from original time calc value)
         // all ranges below are the same ms padding logic as in formatTime function, but with *100 for all ranges
-        let error_range_milliseconds = Math.floor(
-          (error_range_seconds * 100000) % 100000
-        );
+        let error_range_milliseconds = Math.floor(error_range_result % 100000);
         let formatted_error_range =
           formatTime(error_range_result).formatted_result;
         if (error_range_milliseconds < 100000) {
@@ -98,13 +110,14 @@ client.on("messageCreate", function (msgInput) {
             formatted_error_range = "0." + error_range_milliseconds;
           }
         }
-        let debug_result = `- Original Time Calc: [${formatted_result}](<https://www.google.com/search?q=%28210000+-+%28${parseFloat(
+
+        let debug_result = `- Original Time Calc: [${formatted_result}](<https://www.google.com/search?q=%28${baseScore}+-+%28${parseFloat(
           score
-        )}+*+100000+%2F+${base_M}%29%29+*+%283+%2F+400%29>)\n  - Time Calc Error Range: ([${formatted_lower_bound}](<https://www.google.com/search?q=%28210000+-+%28${parseFloat(
+        )}+*+100000+%2F+${base_M}%29%29+*+%283+%2F+${baseDivisor}%29>)\n  - Time Calc Error Range: ([${formatted_lower_bound}](<https://www.google.com/search?q=%28${baseScore}+-+%28${parseFloat(
           score + 0.5
-        )}+*+100000+%2F+${base_M}%29%29+*+%283+%2F+400%29>), [${formatted_higher_bound}](<https://www.google.com/search?q=%28210000+-+%28${parseFloat(
+        )}+*+100000+%2F+${base_M}%29%29+*+%283+%2F+${baseDivisor}%29>), [${formatted_higher_bound}](<https://www.google.com/search?q=%28${baseScore}+-+%28${parseFloat(
           score - 0.5
-        )}+*+100000+%2F+${base_M}%29%29+*+%283+%2F+400%29>)]\n  - Margin of Error (Seconds): ± [${formatted_error_range}](<https://www.google.com/search?q=%280.5+*+100000+%2F+${base_M}%29+*+%283+%2F+400%29>)\n  - M value: ${base_M}`;
+        )}+*+100000+%2F+${base_M}%29%29+*+%283+%2F+${baseDivisor}%29>)]\n  - Margin of Error (Seconds): ± [${formatted_error_range}](<https://www.google.com/search?q=%280.5+*+100000+%2F+${base_M}%29+*+%283+%2F+${baseDivisor}%29>)\n  - M value: ${base_M}`;
         if (command === "!time") {
           result_array.push(formatted_result);
           if (
@@ -129,7 +142,7 @@ client.on("messageCreate", function (msgInput) {
     let num_hyphen_check = /^[0-9]*$/;
     if (
       num_hyphen_check.test(score) == false ||
-      score > 210000 ||
+      score > baseScore ||
       score < 5000 ||
       // if no numbers were returned in range (0 to 5 minutes), it's a bad input
       result_array.length === 0
@@ -155,12 +168,14 @@ client.on("messageCreate", function (msgInput) {
 });
 
 function formatTime(base_result) {
-  let minutes = Math.floor(base_result / 60);
-  let seconds = base_result - minutes * 60;
+  // let minutes = Math.floor(base_result / (60 * 1000));
+  let base_seconds = Math.floor(base_result / 1000);
+  let minutes = Math.floor(base_seconds / 60);
+  let seconds = Math.floor(base_seconds % 60);
 
   // milliseconds we multiply by 1000 and then take remainder after dividing by 1000, to eliminate
   // float division rounding errors
-  let milliseconds = Math.floor((seconds * 1000) % 1000);
+  let milliseconds = Math.floor(base_result % 1000);
 
   // put the minutes / seconds / milliseconds together formatted
   let formatted_result;

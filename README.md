@@ -43,6 +43,10 @@ Check [Discord.js v12 documentation](https://v12.discordjs.guide/creating-your-b
 
 ![debug 2](static/debugtime2.png)
 
-If needed, click the individual links on the debug message to see the exact math equation use (cross reference with [Longer Math Explanation](https://github.com/solderq35/time-calc-under-5/blob/main/README.md#error-calculation) link at bottom):
+If needed, click the individual links on the debug message to see the exact math equations used (cross reference with [Longer Math Explanation](https://github.com/solderq35/time-calc-under-5/blob/main/README.md#error-calculation) link at bottom):
 
 ![googleCalc](static/googlecalc.png)
+
+10. You can also use the `over5` optional parameter to calculate milliseconds for runs between 5 and 15 minutes. This parameter is compatible with both `!time` and `!debugtime` commands, as shown:
+
+![googleCalc](static/over5.png)
