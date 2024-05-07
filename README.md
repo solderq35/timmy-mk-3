@@ -28,7 +28,7 @@ Check [Discord.js v12 documentation](https://v12.discordjs.guide/creating-your-b
    - **NOTE: Only Hitman level completion times of up to 5 minutes are compatible with the bot.**
    - Use the [Time Calc Website](https://solderq35.github.io/time-calc-under-5/over5) for times of 5 to 15 minutes.
 4. For this example, let's use [this video](https://www.youtube.com/watch?v=zIRAmZdl-y4), which is an 8 second run of the "On Top of the World" Hitman level.
-5. We can see that the end of this video that the score at the end of the video is `83,521`. As shown here: ![Score](static/goronscore.PNG)
+5. We can see at the end of this video that the score at the end of the video is `83,521`. As shown here: ![Score](static/goronscore.PNG)
 6. Now, let's type `!time 83521`.
 
 ![Milliseconds Score](static/timmy-example.png)
@@ -37,7 +37,7 @@ Check [Discord.js v12 documentation](https://v12.discordjs.guide/creating-your-b
 
 8. In case of rounding errors, you will get a warning, as shown below (example: `!time 204667`):
 
-![debug 1](static/debugtime1.png)
+![debug 1](https://i.ibb.co/kxbjDHN/debugtime1.png)
 
 9. Use the `!debugtime SCORE`, where SCORE is the score on the rating screen as shown below (example: `!debugtime 204667`):
 
@@ -47,6 +47,6 @@ If needed, click the individual links on the debug message to see the exact math
 
 ![googleCalc](static/googlecalc.png)
 
-10. You can also use the `over5` optional parameter to calculate milliseconds for runs between 5 and 15 minutes. This parameter is compatible with both `!time` and `!debugtime` commands, as shown:
+10. You can also use the `over5` optional parameter to calculate milliseconds for runs between 5 and 15 minutes. Use the syntax `!time SCORE over5` or `!debugtime SCORE over5`, as shown below:
 
 ![googleCalc](static/over5.png)
